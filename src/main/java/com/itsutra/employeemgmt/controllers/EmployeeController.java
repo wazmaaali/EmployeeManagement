@@ -68,8 +68,9 @@ public class EmployeeController {
         employeeDTO.setEmail(employee.getEmail());
         employeeDTO.setDob(employee.getDob());
         employeeDTO.setDepartment(employee.getDepartment());
-        employeeDTO.setPosition(employee.getRole());
+        employeeDTO.setRole(employee.getRole());
         employeeDTO.setSalary(employee.getSalary());
+        employeeDTO.setJoiningDay(employee.getJoiningDay());
         return employeeDTO;
     }
     public Employee convertToEntity(EmployeeDTO employeeDTO) {
@@ -81,8 +82,9 @@ public class EmployeeController {
         employee.setEmail(employeeDTO.getEmail());
         employee.setDob(employeeDTO.getDob());
         employee.setDepartment(employeeDTO.getDepartment());
-        employee.setRole(employeeDTO.getPosition());
+        employee.setRole(employeeDTO.getRole());
         employee.setSalary(employeeDTO.getSalary());
+        employee.setJoiningDay(employeeDTO.getJoiningDay());
 
 
         return employee;

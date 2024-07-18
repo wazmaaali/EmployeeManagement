@@ -1,13 +1,14 @@
 package com.itsutra.employeemgmt.controllers;
 
 import com.itsutra.employeemgmt.controllers.dto.DepartmentDTO;
+import com.itsutra.employeemgmt.controllers.dto.EmployeeDTO;
 import com.itsutra.employeemgmt.enitity.Department;
+import com.itsutra.employeemgmt.enitity.Employee;
 import com.itsutra.employeemgmt.services.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,20 +29,25 @@ public class DepartmentController {
         return ResponseEntity.ok().body(departmentDTOs);
 
     }
-
+    @PostMapping("/")
+    public ResponseEntity<Void> addEmployee(@RequestBody DepartmentDTO departmenDTO) {
+        Department department = convertToEntity(departmenDTO);
+        departmentService.addDepartment(department);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
     public DepartmentDTO convertToDto(Department department) {
 
         DepartmentDTO departmentDTO = new DepartmentDTO();
         departmentDTO.setId(department.getId());
         departmentDTO.setName(department.getName());
-        departmentDTO.setEmployees(department.getEmployees());
+//        departmentDTO.setEmployees(department.getEmployees());
         return departmentDTO;
     }
     public Department convertToEntity(DepartmentDTO departmentDTO) {
         Department department = new Department();
         department.setId(departmentDTO.getId());
         department.setName(departmentDTO.getName());
-        department.setEmployees(departmentDTO.getEmployees());
+//        department.setEmployees(departmentDTO.getEmployees());
         return department;
 
     }

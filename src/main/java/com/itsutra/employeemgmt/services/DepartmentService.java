@@ -17,4 +17,7 @@ public class DepartmentService {
         return (List<Department>) departmentRepository.findAll();
     }
 
+    public void addDepartment(Department department) {
+        departmentRepository.save(department);
+    }
 }

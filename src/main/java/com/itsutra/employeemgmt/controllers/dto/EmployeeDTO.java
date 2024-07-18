@@ -51,7 +51,7 @@ public class EmployeeDTO {
         this.department = department;
     }
 
-    public void setPosition(Role role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
@@ -91,7 +91,7 @@ public class EmployeeDTO {
         return department;
     }
 
-    public Role getPosition() {
+    public Role getRole() {
         return role;
     }
 
